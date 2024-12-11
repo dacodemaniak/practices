@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToggleButtonDirective } from './directives/toggle-button.directive';
 import { UiModule } from '../ui/ui.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +23,8 @@ import { UiModule } from '../ui/ui.module';
     FooterComponent,
     HttpClientModule,
     UiModule,
-    ToggleButtonDirective
+    ToggleButtonDirective,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

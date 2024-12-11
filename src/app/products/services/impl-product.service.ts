@@ -41,4 +41,22 @@ export class ImplProductService implements ProductService<ProductModel> {
       })
     )
   }
+
+  add(data: any): void {
+    const _data = {
+      id: data.id.toString(),
+      label: data.label
+    }
+    this.httpClient.post<ProductModel>(
+      this.endPoint,
+      _data
+    ).subscribe()
+  }
+
+  update(data: any): void {
+    this.httpClient.put<ProductModel>(
+      this.endPoint + '/' + data.id,
+      data
+    ).subscribe()
+  }
 }

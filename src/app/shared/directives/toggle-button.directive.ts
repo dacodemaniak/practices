@@ -1,4 +1,4 @@
-import { Directive, ElementRef, EventEmitter, HostListener, OnInit, Output, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, Renderer2 } from '@angular/core';
 import { ToggleType } from '../../products/types/toggle.type';
 
 @Directive({
@@ -14,6 +14,12 @@ export class ToggleButtonDirective implements OnInit {
     'non-clicked-btn'
   ]
 
+  @Input()
+  styles: Map<string, string> = new Map([
+    ['backgroundColor', '#f6f6f6'],
+    // ...
+  ])
+  
   @Output()
   onToggle: EventEmitter<ToggleType> = new EventEmitter<ToggleType>()
 

@@ -4,6 +4,7 @@ import { ProductModel } from '../../models/product-model';
 import { ImplProductService } from '../../services/impl-product.service';
 import { Subscription } from 'rxjs';
 import { ToggleType } from '../../types/toggle.type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-home',
@@ -15,8 +16,14 @@ export class ProductHomeComponent {
 
   private _subscriptions: Subscription = new Subscription()
 
+  public styles: Map<string, string> = new Map([
+    ['backgrounColor', '#cecece']
+    // ...
+  ])
+  
   constructor(
-    private _productService: ImplProductService
+    private _productService: ImplProductService,
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
@@ -38,5 +45,12 @@ export class ProductHomeComponent {
   onToggle(event: ToggleType): void {
     const product = this.products.find((p: any) => p.id === event.id)
     product.isSelected = event.isSelected
+  }
+
+  onProductClick(product: any): void {
+    this._router.navigate(['/', 'products', 'update', product.id])
+      .then((result: boolean) => {
+        console.log(`Navigation complete with ${result}`)
+      })
   }
 }

@@ -13,4 +13,8 @@ export interface ProductService<T> {
      * @throws Exception if T was not found
      */
     findOne(id: number): Observable<T>
+
+    add(data: any): void
+
+    update(data: any): void
 }

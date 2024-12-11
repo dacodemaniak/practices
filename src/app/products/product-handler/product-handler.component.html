@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input type="number" matInput placeholder="Id..." formControlName="id">
+        <mat-error
+            *ngIf="c['id'].errors && (c['id'].touched || c['id'].dirty)"
+        >
+            id must be greater than 1
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="text" matInput placeholder="Label..." formControlName="label">
+        <mat-error
+            *ngIf="c['label'].errors && (c['label'].touched || c['label'].dirty)"
+        >
+            Label is required
+        </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="form.invalid">
+        Send
+    </button>
+</form>
