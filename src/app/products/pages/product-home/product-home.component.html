@@ -1,0 +1,17 @@
+<mat-toolbar id="product-toolbar">
+    My Toolbar
+</mat-toolbar>
+
+<ng-container *ngIf="products.length">
+
+    <div [ngClass]="{'product-tile': true, 'is-selected': product.isSelected}" *ngFor="let product of products">
+        <button
+            appToggleButton
+            (onToggle)="onToggle($event)"
+        >
+            {{ product.id }}
+        </button>
+        <p>{{ product.label }}</p>
+    </div>
+</ng-container>
+

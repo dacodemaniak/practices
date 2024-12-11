@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.rounded-btn {
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    height: 4em;
+    width: 4em;
+    line-height: 4em;
+    text-align: center;
+    vertical-align: middle;
+
+    &.rounded-btn-background {
+        color: white;
+        &.non-clicked-btn {
+            background-color: aquamarine;
+        }
+        &.clicked-btn {
+            background-color: brown;
+        }
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
